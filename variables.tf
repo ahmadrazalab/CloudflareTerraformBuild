@@ -10,10 +10,16 @@ variable "cloudflare_zone_id" {
 }
 
 
-variable "cname_proxied" {
+variable "proxied" {
   description = "Whether the CNAME should be proxied through Cloudflare"
   type        = bool
   default     = true
+}
+
+variable "nonproxied" {
+  description = "Whether the CNAME should be proxied through Cloudflare"
+  type        = bool
+  default     = false
 }
 
 variable "default_ttl" {
