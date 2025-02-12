@@ -16,8 +16,14 @@ variable "cname_proxied" {
   default     = true
 }
 
-variable "cname_ttl" {
+variable "default_ttl" {
   description = "TTL value for the CNAME record"
   type        = number
   default     = 300
+}
+
+variable "proxied_ttl" {
+  description = "TTL value for the CNAME record"
+  type        = number
+  default     = 1
 }
