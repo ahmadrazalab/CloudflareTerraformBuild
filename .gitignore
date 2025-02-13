@@ -3,7 +3,11 @@
 *.tfstate.backup
 secret.md
 cf-terraforming
-account-personal/
+
+# account-specific
+personal-accounts
+paytring-accounts
+
 
 # Crash logs
 crash.log
