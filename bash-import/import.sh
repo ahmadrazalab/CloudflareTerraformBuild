@@ -1,6 +1,7 @@
 #!/bin/bash
 # Run the script, and it will generate all the Terraform import commands.
 ZONE_ID=""
+
 API_TOKEN=""
 
 # Get all DNS records

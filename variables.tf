@@ -33,3 +33,4 @@ variable "proxied_ttl" {
   type        = number
   default     = 1
 }
+

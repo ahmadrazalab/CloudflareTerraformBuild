@@ -1,13 +1,11 @@
+# private files 
+Z-Local.sh
+
+terraform.tfvars
+
 # Terraform state files
 *.tfstate
 *.tfstate.backup
-secret.md
-cf-terraforming
-
-# account-specific
-personal-accounts
-paytring-accounts
-
 
 # Crash logs
 crash.log

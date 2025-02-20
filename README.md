@@ -1,5 +1,19 @@
 # 🌐 Managing Cloudflare DNS with Terraform
 
+
+ZONE_ID=""
+API_TOKEN=""
+
+
+### tf vars file for token 
+cloudflare_api_token = ""
+cloudflare_zone_id = ""
+
+## Using Azure Blob Storage for State Backend 
+terraform init -migrate-state
+export ARM_ACCESS_KEY=""
+
+
 This repository automates the management of Cloudflare DNS records using **Terraform**.  
 It includes scripts to **import existing DNS records**, **generate Terraform configurations**, and **apply changes** efficiently.
 
