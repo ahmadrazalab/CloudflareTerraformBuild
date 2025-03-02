@@ -1,10 +1,20 @@
 # Sample DNS record
-resource "cloudflare_dns_record" "uptime_kubecloud_in_net" {
-  zone_id = "947884535b3bc67c60b37af84c91a744"
-  name    = "uptime.kubecloud.in.net"
+resource "cloudflare_dns_record" "<subdomain>_<domain>_com" {
+  zone_id = "<domain-zone-ID>"
+  name    = "subdomain.domain.com"
   type    = "CNAME"
-  content = "abbeeaba-8aa1-4ac3-ae27.test.com"
+  content = "cname-record.test.com"
   proxied = true
   ttl     = 1
 }
 
+
+# Sample DNS record
+resource "cloudflare_dns_record" "<subdomain2>_<domain>_com" {
+  zone_id = "<domain-zone-ID>"
+  name    = "subdomain2.domain.com"
+  type    = "A"
+  content = "127.0.0.1"
+  proxied = true
+  ttl     = 1
+}
