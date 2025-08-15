@@ -132,18 +132,54 @@ If `terraform plan` shows it will **recreate existing records**, it's likely bec
 
 ---
 
-## 📜 **Example Terraform Configuration**
-A typical DNS record managed with Terraform looks like this:
+
+## � **How to Use This Module in Your Project**
+
+Add this module to your Terraform project:
 
 ```hcl
-resource "cloudflare_dns_record" "example" {
-  zone_id = "947884535b3bc67c60b37af84c91a744"
-  name    = "example"
-  type    = "A"
-  content = "198.51.100.4"
-  proxied = true
-  ttl     = 1
+module "cloudflare_dns" {
+  source = "<path-to-this-module>"
+  cloudflare_zone_id = var.cloudflare_zone_id
+  records = [
+    {
+      name    = "app"
+      type    = "A"
+      content = "198.51.100.4"
+      ttl     = 1
+      proxied = true
+    },
+    {
+      name    = "www"
+      type    = "CNAME"
+      content = "app.example.com"
+      ttl     = 300
+      proxied = false
+      comment = "Non-proxied www record"
+    }
+  ]
 }
+```
+
+**Inputs:**
+- `cloudflare_zone_id`: The Cloudflare Zone ID for your domain.
+- `records`: List of DNS records to create (see example above).
+
+**Outputs:**
+- `dns_records`: Map of all created DNS records and their details.
+
+**Provider:**
+You must configure the Cloudflare provider in your root module, e.g.:
+```hcl
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
+}
+```
+
+**Example `terraform.tfvars`:**
+```hcl
+cloudflare_api_token = "your-token"
+cloudflare_zone_id   = "your-zone-id"
 ```
 
 ---
